@@ -24,21 +24,28 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  updateGood = () => {
-    this.setState(prevState => {
-      return { good: prevState.good + 1 };
+
+  onLeaveFeedback(option) {
+    this.setState({
+      [option]: this.state[option] + 1,
     });
-  };
-  updateNeutral = () => {
-    this.setState(prevState => {
-      return { neutral: prevState.neutral + 1 };
-    });
-  };
-  updateBad = () => {
-    this.setState(prevState => {
-      return { bad: prevState.bad + 1 };
-    });
-  };
+  }
+
+  // updateGood = () => {
+  //   this.setState(prevState => {
+  //     return { good: prevState.good + 1 };
+  //   });
+  // };
+  // updateNeutral = () => {
+  //   this.setState(prevState => {
+  //     return { neutral: prevState.neutral + 1 };
+  //   });
+  // };
+  // updateBad = () => {
+  //   this.setState(prevState => {
+  //     return { bad: prevState.bad + 1 };
+  //   });
+  // };
 
   countTotalFeedback() {
     const total = this.state.good + this.state.neutral + this.state.bad;
@@ -56,9 +63,8 @@ class App extends Component {
         <Heading>Cafe Expresso Feedback</Heading>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            updateGood={this.updateGood}
-            updateNeutral={this.updateNeutral}
-            updateBad={this.updateBad}
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.onLeaveFeedback.bind(this)}
           />
         </Section>
         {this.countTotalFeedback() ? (
