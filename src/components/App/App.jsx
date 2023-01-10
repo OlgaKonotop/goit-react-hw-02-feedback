@@ -3,11 +3,21 @@ import { Message } from 'components/Message/Message';
 import { Statistics } from 'components/Statistics/Statistics';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Section } from 'components/Section/Section';
-
+import PropTypes from 'prop-types';
 import { Container, Heading } from 'components/App/App.styled';
 
 class App extends Component {
-  static propTypes = {};
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    updateGood: PropTypes.number.isRequired,
+    updateNeutral: PropTypes.number.isRequired,
+    updateBad: PropTypes.number.isRequired,
+    total: PropTypes.string.isRequired,
+    positiveFeedback: PropTypes.string.isRequired,
+    good: PropTypes.string.isRequired,
+    bad: PropTypes.string.isRequired,
+    neutral: PropTypes.string.isRequired,
+  };
 
   state = {
     good: 0,

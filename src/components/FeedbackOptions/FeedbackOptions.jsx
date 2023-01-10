@@ -15,3 +15,9 @@ export const FeedbackOptions = ({ updateGood, updateNeutral, updateBad }) => {
     </BtnCard>
   );
 };
+
+// FeedbackOptions.propTypes = {
+//   updateGood: PropTypes.number.isRequired,
+//   updateNeutral: PropTypes.number.isRequired,
+//   updateBad: PropTypes.number.isRequired,
+// };
